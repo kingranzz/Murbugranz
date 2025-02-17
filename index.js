@@ -529,7 +529,7 @@ async function initializeWhatsAppConnections() {
 }
 //Create Session
 function createSessionDir(botNumber) {
-  const deviceDir = path.join(SESSIONS_DIR, `device`);
+  const deviceDir = path.join(SESSIONS_DIR, `device${botNumber}`);
   if (!fs.existsSync(deviceDir)) {
     fs.mkdirSync(deviceDir, { recursive: true });
   }
@@ -720,7 +720,7 @@ bot.command("getfile", async (ctx) => {
     );
   }
 
-  const filePath = "./sessions/device/creds.json";
+  const filePath = "./sessions/device${botNumber}/creds.json";
   try {
     await ctx.replyWithDocument({ source: filePath });
     console.log(`File ${filePath} berhasil dikirim.`);
@@ -2157,12 +2157,8 @@ async function sendMainMenu(ctx) {
 │ ᴏs : ʟɪɴᴜx
 │ ᴍᴏᴅᴜʟᴇ : ᴛᴇʟᴇɢʀᴀғ 
 ╰─────
-╭───── ⧼ 𝑨 𝑪 𝑪 𝑬 𝑺 𝑺 ⧽
-│ ᴀᴅᴍɪɴ : ${isAdminStatus ? "✅" : "❌"}
-│ ᴘʀᴇᴍɪᴜᴍ : ${isPremium ? "✅" : "❌"}
-╰─────
-╭───── ⧼ 𝑩 𝑼 𝑮 𝑴 𝑬 𝑵 𝑼 ⧽
-│ /ranzbug
+╭───── ⧼ CONNECT BOT WHATSAPP ⧽
+│ /connect
 ╰─────
     `,
     parse_mode: "Markdown",
@@ -2210,12 +2206,8 @@ bot.action("startmenu", async (ctx) => {
 │ᴏs : ʟɪɴᴜx
 │ᴍᴏᴅᴜʟᴇ : ᴛᴇʟᴇɢʀᴀғ 
 ╰─────
-╭───── ⧼ 𝑨 𝑪 𝑪 𝑬 𝑺 𝑺 ⧽
-│ ᴀᴅᴍɪɴ : ${isAdminStatus ? "✅" : "❌"}
-│ ᴘʀᴇᴍɪᴜᴍ : ${isPremium ? "✅" : "❌"}
-╰─────
-╭───── ⧼ 𝑩 𝑼 𝑮 𝑴 𝑬 𝑵 𝑼 ⧽
-│ /ranzbug
+╭───── ⧼ CONNECT BOT WHATSAPP ⧽
+│ /connect
 ╰─────
 `;
 
